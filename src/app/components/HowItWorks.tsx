@@ -1,3 +1,7 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
 import { UserCircleIcon, UserGroupIcon, TrophyIcon } from '@heroicons/react/24/outline'
 
 const steps = [
@@ -20,30 +24,63 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">¿Cómo funciona?</h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+    <section className="relative py-24 sm:py-32 overflow-hidden bg-white">
+      {/* Gradientes sutiles en el fondo para dar profundidad */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-100/60 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-200/40 to-transparent rounded-full blur-2xl"></div>
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl lg:text-center mb-20"
+        >
+          <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">
+            ¿Cómo funciona?
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-blue-900/80">
             Empieza a jugar al pádel en tres sencillos pasos
           </p>
-        </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
-            {steps.map((step) => (
-              <div key={step.name} className="relative pl-16">
-                <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-800">
-                    <step.icon className="h-6 w-6 text-white" aria-hidden="true" />
+        </motion.div>
+
+        <div className="mx-auto mt-16 max-w-2xl lg:max-w-none">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative rounded-2xl bg-blue-800/90 backdrop-blur-sm p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-900/10 hover:bg-blue-900"
+                style={{ 
+                  boxShadow: '0 10px 40px -15px rgba(30, 58, 138, 0.15)',
+                }}
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-blue-800 mb-8 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                    <step.icon className="h-10 w-10 transition-all duration-300" aria-hidden="true" />
                   </div>
-                  {step.name}
-                </dt>
-                <dd className="mt-2 text-base leading-7 text-gray-600">{step.description}</dd>
-              </div>
+                  <h3 className="text-2xl font-bold leading-7 text-white mb-4">
+                    {step.name}
+                  </h3>
+                  <p className="text-base leading-7 text-blue-100">
+                    {step.description}
+                  </p>
+                </div>
+              </motion.div>
             ))}
-          </dl>
+          </div>
         </div>
       </div>
-    </div>
+
+      <style jsx>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@500;700&display=swap');
+      `}</style>
+    </section>
   )
 } 
