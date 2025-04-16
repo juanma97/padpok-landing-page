@@ -3,15 +3,28 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export default function EarlyAccessForm() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Aquí iría la lógica para guardar el email
-    setSubmitted(true);
+    setError('');
+
+    try {
+      await addDoc(collection(db, 'earlyAccess'), {
+        email,
+        createdAt: serverTimestamp()
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setError('Hubo un error al guardar tu email. Por favor, inténtalo de nuevo.');
+      console.error('Error al guardar email:', err);
+    }
   };
 
   return (
@@ -44,6 +57,9 @@ export default function EarlyAccessForm() {
                 placeholder="tu@email.com"
                 required
               />
+              {error && (
+                <p className="mt-2 text-sm text-red-600">{error}</p>
+              )}
             </div>
             
             <button
@@ -71,7 +87,7 @@ export default function EarlyAccessForm() {
               </li>
               <li className="flex items-start">
                 <CheckCircle className="h-6 w-6 text-blue-500 mr-2 mt-1" />
-                <span className="text-gray-900">Badge de "Early Adopter" en tu perfil</span>
+                <span className="text-gray-900">Badge de &ldquo;Early Adopter&rdquo; en tu perfil</span>
               </li>
             </ul>
           </div>
