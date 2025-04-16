@@ -34,10 +34,10 @@ const CallToAction = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => router.push('/register')}
+                onClick={() => router.push('/registro-temprano')}
                 className="rounded-full bg-white px-12 py-4 text-lg font-semibold text-blue-900 shadow-sm hover:bg-blue-50 transition-all duration-300 hover:cursor-pointer"
               >
-                Empieza a jugar gratis
+                Únete a la lista de espera
               </motion.button>
             </div>
             <p className="mt-6 text-sm text-blue-200">

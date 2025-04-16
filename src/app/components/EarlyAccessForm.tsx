@@ -79,10 +79,6 @@ export default function EarlyAccessForm() {
               </li>
               <li className="flex items-start">
                 <CheckCircle className="h-6 w-6 text-blue-500 mr-2 mt-1" />
-                <span className="text-gray-900">Descuento especial en la membresía premium</span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="h-6 w-6 text-blue-500 mr-2 mt-1" />
                 <span className="text-gray-900">Influencia en el desarrollo de nuevas características</span>
               </li>
               <li className="flex items-start">
