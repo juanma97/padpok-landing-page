@@ -77,12 +77,14 @@ const Hero = () => {
             transition={{ delay: 0.8 }}
             className="flex justify-center"
           >
-            <button
-              onClick={() => router.push('/register')}
-              className="rounded-full bg-blue-900 hover:bg-blue-600 px-12 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:cursor-pointer"
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => router.push('/registro-temprano')}
+              className="rounded-full bg-white px-12 py-4 text-lg font-semibold text-blue-900 shadow-sm hover:bg-blue-50 transition-all duration-300"
             >
-              Empezar ahora gratis
-            </button>
+              Únete a la lista de espera
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>
