@@ -3,48 +3,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Search, Calendar, CheckCircle } from 'lucide-react';
+import { COLORS, FONTS, SIZES, SPACING } from '@/theme';
 
 const steps = [
   {
     icon: Search,
-    title: 'Buscar jugadores',
-    description: 'Encuentra jugadores de tu nivel y zona fácilmente',
-    color: 'bg-blue-500'
+    title: 'Descubre y Únete',
+    description: 'Explora grupos y partidos en tu zona. Filtra por nivel, ubicación o intereses y encuentra siempre dónde jugar.',
+    color: COLORS.primary
   },
   {
     icon: Calendar,
-    title: 'Crear un partido',
-    description: 'Organiza partidos y gestiona inscripciones en segundos',
-    color: 'bg-green-500'
+    title: 'Organiza en Segundos',
+    description: 'Crea partidos o grupos, invita a amigos o abre la convocatoria a la comunidad. Todo desde una app intuitiva.',
+    color: COLORS.success
   },
   {
     icon: CheckCircle,
-    title: 'Confirmar y jugar',
-    description: 'Confirma tu asistencia y disfruta del pádel',
-    color: 'bg-blue-700'
+    title: 'Juega, Gana y Progresa',
+    description: 'Disfruta del pádel, gana medallas, sube en el ranking y haz nuevos amigos en una comunidad activa y segura.',
+    color: COLORS.secondary
   }
 ];
 
 const VisualFlow = () => {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section style={{ padding: `${SPACING.xxl}px 0`, background: COLORS.white }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: `0 ${SPACING.xl}px` }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          style={{ textAlign: 'center', marginBottom: SPACING.xxl }}
         >
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+          <h2 style={{ fontSize: SIZES.xxl, fontWeight: 700, color: COLORS.primary, marginBottom: SPACING.md, fontFamily: FONTS.bold, lineHeight: 1.15 }}>
             ¿Cómo funciona?
           </h2>
-          <p className="text-xl text-gray-600">
+          <p style={{ fontSize: SIZES.lg, color: COLORS.dark, fontFamily: FONTS.regular, lineHeight: 1.4 }}>
             Empieza a jugar al pádel en tres sencillos pasos
           </p>
         </motion.div>
 
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: SPACING.xl }}>
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
@@ -52,33 +53,45 @@ const VisualFlow = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="relative flex flex-col items-center text-center"
+              style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
             >
               {/* Conector vertical en mobile */}
               {index < steps.length - 1 && (
-                <div className="block md:hidden absolute bottom-[-2rem] w-0.5 h-8 bg-gray-300 z-0" />
+                <div style={{ display: 'block', position: 'absolute', bottom: -32, width: 2, height: 32, background: COLORS.border, zIndex: 0 }} />
               )}
 
               {/* Conector horizontal en desktop */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 right-[-2.5rem] w-10 h-0.5 bg-gray-300 z-0" />
+                <div style={{ display: 'none', position: 'absolute', top: '50%', right: -40, width: 40, height: 2, background: COLORS.border, zIndex: 0 }} />
               )}
 
               <motion.div
                 whileHover={{ scale: 1.03 }}
-                className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl border border-gray-100 hover:border-blue-200 transition-all w-full h-full flex flex-col justify-between min-h-[300px]"
+                style={{
+                  background: COLORS.white,
+                  borderRadius: SPACING.lg,
+                  padding: SPACING.xl,
+                  boxShadow: `0 4px 24px 0 ${COLORS.shadow}`,
+                  border: `1px solid ${COLORS.border}`,
+                  width: '100%',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  minHeight: 300,
+                }}
               >
-                <div className="flex flex-col items-center">
-                  <div className="relative mb-6">
-                    <div className={`${step.color} w-16 h-16 rounded-full flex items-center justify-center`}>
-                      <step.icon className="w-8 h-8 text-white transition-transform duration-300 group-hover:scale-110" />
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ position: 'relative', marginBottom: SPACING.lg }}>
+                    <div style={{ background: step.color, width: 64, height: 64, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <step.icon style={{ width: 32, height: 32, color: COLORS.white, transition: 'transform 0.3s' }} />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-white border border-gray-200 rounded-full flex items-center justify-center text-sm font-semibold text-gray-700 shadow">
+                    <div style={{ position: 'absolute', top: -8, right: -8, width: 24, height: 24, background: COLORS.white, border: `1px solid ${COLORS.border}`, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: SIZES.sm, color: COLORS.dark, boxShadow: `0 2px 8px ${COLORS.shadow}` }}>
                       {index + 1}
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <h3 style={{ fontSize: SIZES.xl, fontWeight: 700, color: COLORS.primary, marginBottom: SPACING.md, fontFamily: FONTS.bold, textAlign: 'center', lineHeight: 1.2 }}>{step.title}</h3>
+                  <p style={{ color: COLORS.dark, fontFamily: FONTS.regular, textAlign: 'center', lineHeight: 1.4 }}>{step.description}</p>
                 </div>
               </motion.div>
             </motion.div>

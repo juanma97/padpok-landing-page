@@ -3,30 +3,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Trophy, Calendar, MessageSquare } from 'lucide-react';
+import { COLORS, FONTS, SIZES, SPACING } from '@/theme';
 
 const benefits = [
   {
-    name: 'Encuentra Compañeros',
-    description: 'Conecta con jugadores de tu nivel y zona para formar partidos sin depender de un club.',
+    name: 'Descubre Grupos y Partidos',
+    description: 'Explora grupos públicos y partidos en tu ciudad. Filtra por nivel, ubicación o intereses y encuentra siempre dónde y con quién jugar.',
     icon: Users,
     gradient: 'from-blue-500 to-blue-700'
   },
   {
-    name: 'Planifica Partidos',
-    description: 'Crea o únete a partidos con jugadores disponibles cerca de ti.',
+    name: 'Organiza y Gestiona Fácil',
+    description: 'Crea tus propios grupos y partidos, invita a amigos o abre la convocatoria a la comunidad. Todo desde una app intuitiva y segura.',
     icon: Calendar,
     gradient: 'from-blue-500 to-blue-700'
   },
   {
-    name: 'Grupos por Nivel y Zona',
-    description: 'Una vez confirmado el partido, accede a un grupo de Telegram para coordinarlo fácilmente.',
-    icon: MessageSquare,
+    name: 'Gana Medallas y Logros',
+    description: 'Consigue medallas por participación, victorias y organización. Sube en el ranking y presume tu perfil con estadísticas y logros.',
+    icon: Trophy,
     gradient: 'from-blue-500 to-blue-700'
   },
   {
-    name: 'Ranking de Jugadores',
-    description: 'Sube en el ranking participando en partidos. Mejora tu posición semana a semana.',
-    icon: Trophy,
+    name: 'Comunidad Activa y Feedback',
+    description: 'Valora a otros jugadores, recibe notificaciones y disfruta de una comunidad segura, activa y en constante crecimiento.',
+    icon: MessageSquare,
     gradient: 'from-blue-500 to-blue-700'
   },
 ];
@@ -34,24 +35,24 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section style={{ padding: `${SPACING.xxl}px 0`, background: COLORS.background }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: `0 ${SPACING.xl}px` }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          style={{ textAlign: 'center', marginBottom: SPACING.xxl }}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 style={{ fontSize: SIZES.xxl, fontWeight: 700, color: COLORS.primary, marginBottom: SPACING.md, fontFamily: FONTS.bold, lineHeight: 1.15 }}>
             Todo lo que necesitas para jugar al pádel
           </h2>
-          <p className="text-xl text-gray-600">
+          <p style={{ fontSize: SIZES.lg, color: COLORS.dark, fontFamily: FONTS.regular, lineHeight: 1.4 }}>
             Descubre cómo PadPok puede transformar tu experiencia en el pádel
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: SPACING.lg }}>
           {benefits.map((benefit, index) => (
             <motion.div
               key={benefit.name}
@@ -63,18 +64,30 @@ export default function Benefits() {
               <motion.div
                 whileHover={{ 
                   scale: 1.03,
-                  boxShadow: "0 10px 40px -15px rgba(0, 0, 0, 0.1)"
+                  boxShadow: `0 10px 40px -15px ${COLORS.shadow}`
                 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="h-full bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:border-blue-200"
+                transition={{ type: 'spring', stiffness: 300 }}
+                style={{
+                  height: '100%',
+                  background: COLORS.white,
+                  borderRadius: SPACING.lg,
+                  padding: SPACING.xl,
+                  boxShadow: `0 4px 24px 0 ${COLORS.shadow}`,
+                  border: `1px solid ${COLORS.border}`,
+                  fontFamily: FONTS.regular,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  minHeight: 320,
+                }}
               >
-                <div className={`mb-6 w-16 h-16 rounded-2xl bg-gradient-to-r ${benefit.gradient} flex items-center justify-center transform transition-transform group-hover:scale-110`}>
-                  <benefit.icon className="w-8 h-8 text-white" />
+                <div style={{ marginBottom: SPACING.lg, width: 64, height: 64, borderRadius: SPACING.lg, background: `linear-gradient(90deg, ${COLORS.primary}, ${COLORS.secondary})`, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: 'scale(1)', transition: 'transform 0.2s' }}>
+                  <benefit.icon style={{ width: 32, height: 32, color: COLORS.white }} />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 style={{ fontSize: SIZES.xl, fontWeight: 700, color: COLORS.primary, marginBottom: SPACING.md, fontFamily: FONTS.bold, textAlign: 'center', lineHeight: 1.2 }}>
                   {benefit.name}
                 </h3>
-                <p className="text-gray-600">
+                <p style={{ color: COLORS.dark, fontFamily: FONTS.regular, textAlign: 'center', lineHeight: 1.4 }}>
                   {benefit.description}
                 </p>
               </motion.div>

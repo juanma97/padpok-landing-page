@@ -3,23 +3,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { COLORS, FONTS, SIZES, SPACING } from '@/theme';
 
 const faqs = [
     {
-      question: '¿Necesito reservar una pista?',
-      answer: 'No es necesario en esta fase. Padpok te conecta con otros jugadores para organizar el partido, y una vez coordinado, podéis decidir dónde jugar y cómo hacer la reserva.'
+      question: '¿Necesito ser experto para usar Padpok?',
+      answer: 'No, Padpok está diseñado para jugadores de todos los niveles. Puedes filtrar grupos y partidos según tu experiencia y preferencias.'
     },
     {
-      question: '¿Cómo me uno a un partido?',
-      answer: 'Busca un partido en tu zona y nivel, y haz clic en "Unirse". Una vez confirmada tu plaza, se creará un grupo de Telegram con los jugadores para coordinar el partido.'
+      question: '¿Puedo crear grupos privados con amigos?',
+      answer: 'Sí, puedes crear grupos privados, invitar a tus amigos y organizar partidos solo para ellos o abrirlos a la comunidad.'
     },
     {
-      question: '¿Qué pasa si falta un jugador?',
-      answer: 'Podrás abrir el partido nuevamente para que otros jugadores de tu zona lo vean y se apunten. Padpok te facilita encontrar reemplazos fácilmente.'
+      question: '¿Cómo funcionan las medallas y el ranking?',
+      answer: 'Ganas medallas por participar, ganar partidos y organizar eventos. Tu perfil muestra tus logros y posición en el ranking local y global.'
     },
     {
-      question: '¿Puedo jugar con amigos?',
-      answer: 'Sí, puedes crear un partido privado y compartir el enlace solo con tus amigos para que se unan al grupo y organicen el partido juntos.'
+      question: '¿La app es gratuita?',
+      answer: 'Sí, puedes empezar gratis y disfrutar de todas las funciones principales. Habrá opciones premium para usuarios avanzados y clubes.'
     }
   ];
   
@@ -28,24 +29,24 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(null);
 
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section style={{ padding: `${SPACING.xxl}px 0`, background: COLORS.background }}>
+      <div style={{ maxWidth: 800, margin: '0 auto', padding: `0 ${SPACING.xl}px` }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          style={{ textAlign: 'center', marginBottom: SPACING.xxl }}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 style={{ fontSize: SIZES.xxl, fontWeight: 700, color: COLORS.primary, marginBottom: SPACING.md, fontFamily: FONTS.bold, lineHeight: 1.15 }}>
             Preguntas frecuentes
           </h2>
-          <p className="text-xl text-gray-600">
+          <p style={{ fontSize: SIZES.lg, color: COLORS.dark, fontFamily: FONTS.regular, lineHeight: 1.4 }}>
             Todo lo que necesitas saber para empezar a jugar
           </p>
         </motion.div>
 
-        <div className="space-y-4">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.lg }}>
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -56,17 +57,22 @@ const FAQ = () => {
             >
               <div
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                style={{
+                  background: COLORS.white,
+                  borderRadius: SPACING.lg,
+                  boxShadow: `0 4px 24px 0 ${COLORS.shadow}`,
+                  border: `1px solid ${COLORS.border}`,
+                  cursor: 'pointer',
+                  transition: 'box-shadow 0.2s',
+                }}
               >
-                <div className="p-6">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold text-gray-900">
+                <div style={{ padding: SPACING.xl }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <h3 style={{ fontSize: SIZES.lg, fontWeight: 600, color: COLORS.primary, fontFamily: FONTS.bold, lineHeight: 1.2 }}>
                       {faq.question}
                     </h3>
                     <ChevronDown
-                      className={`w-5 h-5 text-gray-500 transition-transform duration-200 ${
-                        openIndex === index ? 'transform rotate-180' : ''
-                      }`}
+                      style={{ width: 20, height: 20, color: COLORS.gray, transition: 'transform 0.2s', transform: openIndex === index ? 'rotate(180deg)' : 'none' }}
                     />
                   </div>
                   {openIndex === index && (
@@ -75,7 +81,7 @@ const FAQ = () => {
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.2 }}
-                      className="mt-4 text-gray-600"
+                      style={{ marginTop: SPACING.md, color: COLORS.dark, fontFamily: FONTS.regular, lineHeight: 1.4 }}
                     >
                       {faq.answer}
                     </motion.p>

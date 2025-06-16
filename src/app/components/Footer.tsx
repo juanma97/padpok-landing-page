@@ -1,10 +1,18 @@
+import { COLORS, FONTS, SIZES, SPACING } from '@/theme';
+
 export default function Footer() {
   return (
-    <footer className="bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-center lg:px-8">
-        <div className="mt-8 md:mt-0">
-          <p className="text-center text-xs leading-5 text-gray-500">
-            &copy; 2025 Padpok – Todos los derechos reservados
+    <footer style={{ background: COLORS.white, borderTop: `1px solid ${COLORS.border}` }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: `${SPACING.xl}px ${SPACING.xl}px`, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: SPACING.md }}>
+        <nav style={{ display: 'flex', gap: SPACING.xl, marginBottom: SPACING.md }}>
+          <a href="/soporte" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>Soporte</a>
+          <a href="/faq" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>FAQ</a>
+          <a href="/terminos" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>Términos</a>
+          <a href="https://instagram.com/padpok" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>Instagram</a>
+        </nav>
+        <div style={{ marginTop: SPACING.lg }}>
+          <p style={{ textAlign: 'center', fontSize: SIZES.sm, color: COLORS.gray, fontFamily: FONTS.regular }}>
+            &copy; {new Date().getFullYear()} Padpok – Todos los derechos reservados
           </p>
         </div>
       </div>

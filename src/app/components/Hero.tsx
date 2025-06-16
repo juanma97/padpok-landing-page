@@ -3,89 +3,97 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { COLORS, FONTS, SIZES, SPACING } from '@/theme';
 
 const Hero = () => {
   const router = useRouter();
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-      {/* Imagen de fondo */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/hero-padel.jpg"
-          alt="Jugadores de pádel"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/0 via-white/20 to-transparent" />
-      </div>
-
-      {/* Contenido principal */}
-      <div className="relative z-10 container mx-auto px-4 flex justify-center">
+    <section style={{ background: COLORS.background, padding: '96px 0 64px 0', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 64, flexWrap: 'wrap' }}>
+        {/* Lado izquierdo: texto */}
         <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, type: "spring" }}
-          className="max-w-3xl w-full bg-white/80 backdrop-blur-2xl rounded-3xl shadow-2xl px-8 py-14 text-center border border-white/50 ring-1 ring-blue-100"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, type: 'spring' }}
+          style={{ flex: 1, minWidth: 320 }}
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-block mb-6 rounded-full bg-green-100 text-green-800 px-4 py-1 text-sm font-medium"
-          >
-            Nuevo en tu ciudad 🚀
-          </motion.div>
-
-          {/* Logo y tagline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-6xl font-extrabold text-gray-900 mb-2 tracking-tight"
-          >
-            padpok
-          </motion.h1>
-          <p className="text-lg text-blue-800 font-medium mb-8">
-            Tu red social de pádel
+          <span style={{
+            display: 'inline-block',
+            background: COLORS.accent,
+            color: COLORS.white,
+            borderRadius: 9999,
+            padding: '6px 22px',
+            fontSize: SIZES.md,
+            fontFamily: FONTS.bold,
+            letterSpacing: 1,
+            marginBottom: SPACING.lg,
+            boxShadow: `0 2px 8px 0 ${COLORS.shadow}`,
+          }}>
+            Nuevo · Comunidad exclusiva
+          </span>
+          <h1 style={{
+            fontSize: 54,
+            fontWeight: 800,
+            color: COLORS.primary,
+            fontFamily: FONTS.bold,
+            lineHeight: 1.08,
+            marginBottom: SPACING.xl,
+            letterSpacing: -1,
+            textShadow: `0 2px 8px ${COLORS.shadow}`,
+          }}>
+            Descubre, organiza y juega<br />al pádel como nunca
+          </h1>
+          <p style={{
+            fontSize: 22,
+            color: COLORS.dark,
+            margin: '32px 0',
+            fontFamily: FONTS.regular,
+            lineHeight: 1.4,
+            maxWidth: 480,
+          }}>
+            Únete a la comunidad de pádel más activa. Encuentra grupos, organiza partidos, gana medallas y haz nuevos amigos. Todo desde una app moderna, fácil y segura.
           </p>
-
-          {/* Título grande */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 drop-shadow"
+          <motion.button
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => router.push('/registro-temprano')}
+            style={{
+              background: COLORS.primary,
+              color: COLORS.white,
+              borderRadius: 9999,
+              padding: '18px 48px',
+              fontSize: 20,
+              fontWeight: 700,
+              fontFamily: FONTS.bold,
+              boxShadow: `0 2px 8px 0 ${COLORS.shadow}`,
+              border: 'none',
+              cursor: 'pointer',
+              marginTop: 16,
+              letterSpacing: 0.2,
+              transition: 'background 0.2s',
+            }}
           >
-            ¿Te falta un jugador? <br /> Encuentra partidos en segundos
-          </motion.h2>
-
-          {/* Descripción */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="text-xl text-gray-700 mb-10"
-          >
-            Únete a cientos de jugadores como tú. Organiza partidos, encuentra rivales y disfruta del pádel sin complicaciones.
-          </motion.p>
-
-          {/* CTA principal */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex justify-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => router.push('/registro-temprano')}
-              className="rounded-full bg-white px-12 py-4 text-lg font-semibold text-blue-900 shadow-sm hover:bg-blue-50 transition-all duration-300"
-            >
-              Únete a la lista de espera
-            </motion.button>
-          </motion.div>
+            Únete gratis
+          </motion.button>
+        </motion.div>
+        {/* Lado derecho: mockup */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, type: 'spring', delay: 0.2 }}
+          style={{ flex: 1, minWidth: 320, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        >
+          <div style={{ position: 'relative', width: 340, height: 680, borderRadius: 40, boxShadow: `0 8px 32px 0 ${COLORS.shadow}`, background: COLORS.white, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {/* Imagen de mockup móvil, reemplaza por tu mockup real */}
+            <img
+              src="/mockup-app.png"
+              alt="Padpok app"
+              style={{ width: 320, height: 660, objectFit: 'cover', borderRadius: 36, boxShadow: `0 2px 16px 0 ${COLORS.shadow}` }}
+            />
+            {/* Efecto de brillo */}
+            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', background: 'linear-gradient(120deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)', borderRadius: 40 }} />
+          </div>
         </motion.div>
       </div>
     </section>

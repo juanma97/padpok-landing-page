@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { UserCircleIcon, UserGroupIcon, TrophyIcon } from '@heroicons/react/24/outline';
+import { COLORS, FONTS, SIZES, SPACING } from '@/theme';
 
 const steps = [
   {
@@ -24,30 +25,30 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden bg-white">
+    <section style={{ position: 'relative', padding: `${SPACING.xxl}px 0`, overflow: 'hidden', background: COLORS.white }}>
       {/* Gradientes decorativos */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-100/60 to-transparent rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-200/40 to-transparent rounded-full blur-2xl"></div>
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '33%', height: '33%', background: `${COLORS.primary}20`, borderRadius: '50%', filter: 'blur(48px)' }}></div>
+        <div style={{ position: 'absolute', bottom: 0, right: 0, width: '33%', height: '33%', background: `${COLORS.accent}20`, borderRadius: '50%', filter: 'blur(32px)' }}></div>
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
+      <div style={{ position: 'relative', maxWidth: 1200, margin: '0 auto', padding: `0 ${SPACING.xl}px`, zIndex: 10 }}>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto max-w-2xl text-center mb-20"
+          style={{ maxWidth: 600, margin: '0 auto', textAlign: 'center', marginBottom: SPACING.xxl }}
         >
-          <h2 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-5xl">
+          <h2 style={{ fontSize: SIZES.xxl, fontWeight: 700, color: COLORS.primary, fontFamily: FONTS.bold, lineHeight: 1.15 }}>
             ¿Cómo funciona?
           </h2>
-          <p className="mt-6 text-lg leading-8 text-blue-900/80">
+          <p style={{ marginTop: SPACING.lg, fontSize: SIZES.lg, color: COLORS.dark, fontFamily: FONTS.regular, lineHeight: 1.4 }}>
             Empieza a jugar al pádel en tres sencillos pasos
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: SPACING.xl }}>
           {steps.map((step, index) => (
             <motion.div
               key={step.name}
@@ -55,16 +56,29 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group flex flex-col justify-between rounded-2xl bg-blue-800/90 backdrop-blur-sm p-10 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-blue-900/10 hover:bg-blue-900 min-h-[360px]"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                borderRadius: SPACING.lg,
+                background: COLORS.primary + 'E6',
+                backdropFilter: 'blur(8px)',
+                padding: SPACING.xl,
+                boxShadow: `0 8px 32px 0 ${COLORS.shadow}`,
+                border: `1px solid ${COLORS.primary}22`,
+                minHeight: 360,
+                transition: 'box-shadow 0.2s, transform 0.2s',
+                cursor: 'pointer',
+              }}
             >
-              <div className="flex flex-col items-center text-center flex-1">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white text-blue-800 mb-8 transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
-                  <step.icon className="h-10 w-10 transition-all duration-300" aria-hidden="true" />
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 80, height: 80, borderRadius: '50%', background: COLORS.white, color: COLORS.primary, marginBottom: SPACING.lg, transition: 'transform 0.2s' }}>
+                  <step.icon style={{ width: 40, height: 40 }} aria-hidden="true" />
                 </div>
-                <h3 className="text-2xl font-bold leading-7 text-white mb-4">
+                <h3 style={{ fontSize: SIZES.xl, fontWeight: 700, color: COLORS.white, marginBottom: SPACING.md, fontFamily: FONTS.bold, lineHeight: 1.2 }}>
                   {step.name}
                 </h3>
-                <p className="text-base leading-7 text-blue-100">
+                <p style={{ fontSize: SIZES.md, color: COLORS.accent, fontFamily: FONTS.regular, lineHeight: 1.4 }}>
                   {step.description}
                 </p>
               </div>
