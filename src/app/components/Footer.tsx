@@ -9,6 +9,7 @@ export default function Footer() {
           <a href="/faq" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>FAQ</a>
           <a href="/terminos" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>Términos</a>
           <a href="/policy-privacy" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>Política de Privacidad</a>
+          <a href="/delete-account" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>Eliminar cuenta</a>
           <a href="https://instagram.com/padpok" target="_blank" rel="noopener noreferrer" style={{ color: COLORS.primary, fontFamily: FONTS.regular, fontSize: SIZES.md, textDecoration: 'none' }}>Instagram</a>
         </nav>
         <div style={{ marginTop: SPACING.lg }}>
