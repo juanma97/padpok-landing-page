@@ -7,6 +7,9 @@ import { COLORS } from '@/theme';
 export const metadata = {
   title: "padpok",
   description: "Padel a otro nivel",
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({
