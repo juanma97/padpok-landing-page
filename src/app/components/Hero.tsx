@@ -2,12 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { useRouter } from 'next/navigation';
-import { COLORS, FONTS, SIZES, SPACING } from '@/theme';
 import { CheckCircleIcon, StarIcon, UsersIcon, TrophyIcon } from '@heroicons/react/24/solid';
 
 const Hero = () => {
-  const router = useRouter();
   const [activeTab, setActiveTab] = useState<'clubes' | 'usuarios'>('clubes');
 
   const features = [
@@ -71,7 +68,12 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
           >
             <button
-              onClick={() => router.push('/registro-temprano')}
+              onClick={() => {
+                const element = document.getElementById('demo');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200"
             >
               <span className="relative z-10">Comenzar Gratis</span>
@@ -79,7 +81,12 @@ const Hero = () => {
             </button>
             
             <button
-              onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => {
+                const element = document.getElementById('demo');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-blue-500 hover:text-blue-600 transition-all duration-200"
             >
               Ver Demo
@@ -159,7 +166,12 @@ const Hero = () => {
                   ))}
                 </div>
                 <button
-                  onClick={() => router.push('/registro-temprano?type=club')}
+                  onClick={() => {
+                    const element = document.getElementById('demo');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
                 >
                   Solicitar Demo para Clubes

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { StarIcon, QuoteIcon, TrophyIcon, UsersIcon, ChartBarIcon } from '@heroicons/react/24/solid';
+import { StarIcon, TrophyIcon, UsersIcon, ChartBarIcon } from '@heroicons/react/24/solid';
 
 const TestimonialsLanding = () => {
   const testimonials = [
@@ -118,12 +118,12 @@ const TestimonialsLanding = () => {
             >
               {/* Quote Icon */}
               <div className="mb-6">
-                <QuoteIcon className="w-8 h-8 text-blue-100" />
+                <div className="w-8 h-8 text-blue-100 text-2xl">&ldquo;</div>
               </div>
 
               {/* Content */}
               <p className="text-gray-700 mb-6 leading-relaxed italic">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </p>
 
               {/* Rating */}

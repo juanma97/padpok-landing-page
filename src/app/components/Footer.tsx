@@ -6,7 +6,6 @@ import {
   MapPinIcon, 
   PhoneIcon, 
   EnvelopeIcon,
-  GlobeAltIcon,
   HeartIcon
 } from '@heroicons/react/24/outline';
 

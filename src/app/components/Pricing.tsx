@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckIcon, StarIcon, CrownIcon, UsersIcon } from '@heroicons/react/24/solid';
+import { CheckIcon, StarIcon, UsersIcon } from '@heroicons/react/24/solid';
 
 const Pricing = () => {
-  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
   const [isAnnual, setIsAnnual] = useState(false);
 
   const plans = [
@@ -57,7 +56,7 @@ const Pricing = () => {
         "Múltiples sedes",
         "Reportes personalizados"
       ],
-      icon: CrownIcon,
+      icon: StarIcon,
       popular: false,
       category: "clubes"
     }
@@ -232,7 +231,7 @@ const Pricing = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl p-12 text-center border-2 border-green-200">
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl p-12 border-2 border-green-200">
             <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-100 text-green-600 mb-6">
               <userPlan.icon className="w-10 h-10" />
             </div>
@@ -253,10 +252,10 @@ const Pricing = () => {
             </ul>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors duration-200">
+              <button className="px-8 py-4 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-200">
                 App Store
               </button>
-              <button className="px-8 py-4 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition-colors duration-200">
+              <button className="px-8 py-4 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-200">
                 Google Play
               </button>
             </div>

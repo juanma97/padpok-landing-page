@@ -5,6 +5,7 @@ import '@fontsource/poppins/700.css';
 import { COLORS } from '@/theme';
 
 export const metadata = {
+  metadataBase: new URL('https://padpok.com'),
   title: "PadPok - Plataforma de Gestión de Torneos y Ligas Deportivas | Para Clubes y Jugadores",
   description: "PadPok es la plataforma líder para gestionar torneos, ligas y competiciones deportivas. Ideal para clubes deportivos que quieren digitalizar su gestión y para jugadores que buscan participar en competiciones. Comienza gratis.",
   keywords: "torneos deportivos, ligas deportivas, gestión de clubes, padel, tenis, badminton, competiciones deportivas, app deportiva, organización de torneos",
