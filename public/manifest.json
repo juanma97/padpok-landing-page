@@ -1,0 +1,40 @@
+{
+  "name": "PadPok - Plataforma de Gestión Deportiva",
+  "short_name": "PadPok",
+  "description": "Plataforma completa para gestionar torneos, ligas y competiciones deportivas",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["sports", "business", "productivity"],
+  "lang": "es-ES",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.padpok.app",
+      "id": "com.padpok.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/padpok/id1234567890"
+    }
+  ]
+}
