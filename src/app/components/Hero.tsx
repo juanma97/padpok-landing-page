@@ -1,188 +1,208 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { COLORS, FONTS, SIZES, SPACING } from '@/theme';
+import { CheckCircleIcon, StarIcon, UsersIcon, TrophyIcon } from '@heroicons/react/24/solid';
 
 const Hero = () => {
   const router = useRouter();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState<'clubes' | 'usuarios'>('clubes');
 
-  // Array de imágenes del carrusel
-  const appImages = [
-    '/app/app-screen-1.jpeg',
-    '/app/app-screen-2.jpeg',
-    '/app/app-screen-3.jpeg',
-    '/app/app-screen-4.jpeg',
-    '/app/app-screen-5.jpeg',
-    '/app/app-screen-6.jpeg',
-    '/app/app-screen-7.jpeg',
-    '/app/app-screen-8.jpeg',
-    '/app/app-screen-9.jpeg',
+  const features = [
+    { icon: TrophyIcon, text: "Gestión completa de torneos" },
+    { icon: UsersIcon, text: "Comunicación con jugadores" },
+    { icon: CheckCircleIcon, text: "Sin comisiones ocultas" },
+    { icon: StarIcon, text: "Soporte prioritario" }
   ];
 
-  // Efecto para cambiar automáticamente la imagen cada segundo
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
-        prevIndex === appImages.length - 1 ? 0 : prevIndex + 1
-      );
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, [appImages.length]);
-
   return (
-    <section id="hero" style={{ background: COLORS.background, padding: '96px 0 64px 0', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 64, flexWrap: 'wrap' }}>
-        {/* Lado izquierdo: texto */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, type: 'spring' }}
-          style={{ flex: 1, minWidth: 320 }}
-        >
-          <span style={{
-            display: 'inline-block',
-            background: COLORS.accent,
-            color: COLORS.white,
-            borderRadius: 9999,
-            padding: '6px 22px',
-            fontSize: SIZES.md,
-            fontFamily: FONTS.bold,
-            letterSpacing: 1,
-            marginBottom: SPACING.lg,
-            boxShadow: `0 2px 8px 0 ${COLORS.shadow}`,
-          }}>
-            Nuevo · Comunidad exclusiva
-          </span>
-          <h1 style={{
-            fontSize: 54,
-            fontWeight: 800,
-            color: COLORS.primary,
-            fontFamily: FONTS.bold,
-            lineHeight: 1.08,
-            marginBottom: SPACING.xl,
-            letterSpacing: -1,
-            textShadow: `0 2px 8px ${COLORS.shadow}`,
-          }}>
-            Organize and Play Tournaments with Ease
-          </h1>
-          <p style={{
-            fontSize: 22,
-            color: COLORS.dark,
-            margin: '32px 0',
-            fontFamily: FONTS.regular,
-            lineHeight: 1.4,
-            maxWidth: 560,
-          }}>
-            Padpok helps you create sports leagues and tournaments in minutes. No hassle, no commissions. Start free and scale as you grow.
-          </p>
-          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-            <motion.button
-              whileHover={{ scale: 1.06 }}
-              whileTap={{ scale: 0.97 }}
+    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+        <div className="text-center mb-16">
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mb-8"
+          >
+            <StarIcon className="w-4 h-4 mr-2" />
+            Plataforma líder en gestión deportiva
+          </motion.div>
+
+          {/* Main Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight"
+          >
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Revoluciona
+            </span>
+            <br />
+            tu gestión deportiva
+          </motion.h1>
+
+          {/* Subheadline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed"
+          >
+            PadPok es la plataforma completa para gestionar torneos, ligas y competiciones deportivas. 
+            <span className="font-semibold text-gray-900"> Ideal para clubes que quieren digitalizar su gestión</span> y para 
+            <span className="font-semibold text-gray-900"> jugadores que buscan participar en competiciones</span>.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          >
+            <button
               onClick={() => router.push('/registro-temprano')}
-              style={{
-                background: COLORS.primary,
-                color: COLORS.white,
-                borderRadius: 9999,
-                padding: '18px 28px',
-                fontSize: 18,
-                fontWeight: 700,
-                fontFamily: FONTS.bold,
-                boxShadow: `0 2px 8px 0 ${COLORS.shadow}`,
-                border: 'none',
-                cursor: 'pointer',
-                marginTop: 16,
-                letterSpacing: 0.2,
-                transition: 'background 0.2s',
-              }}
+              className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200"
             >
-              Start for Free
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.06 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => {
-                const el = document.querySelector('#pricing');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              style={{
-                background: COLORS.white,
-                color: COLORS.primary,
-                borderRadius: 9999,
-                padding: '18px 28px',
-                fontSize: 18,
-                fontWeight: 700,
-                fontFamily: FONTS.bold,
-                boxShadow: `0 2px 8px 0 ${COLORS.shadow}`,
-                border: `1px solid ${COLORS.border}`,
-                cursor: 'pointer',
-                marginTop: 16,
-                letterSpacing: 0.2,
-                transition: 'background 0.2s',
-              }}
+              <span className="relative z-10">Comenzar Gratis</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
+            </button>
+            
+            <button
+              onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-blue-500 hover:text-blue-600 transition-all duration-200"
             >
-              See Pricing
-            </motion.button>
-          </div>
-        </motion.div>
-        {/* Lado derecho: carrusel de mockups */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, type: 'spring', delay: 0.2 }}
-          style={{ flex: 1, minWidth: 320, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-        >
-          <div style={{ position: 'relative', width: 340, height: 680, borderRadius: 40, boxShadow: `0 8px 32px 0 ${COLORS.shadow}`, background: COLORS.white, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            {/* Carrusel de imágenes */}
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentImageIndex}
-                src={appImages[currentImageIndex]}
-                alt={`Padpok app - Pantalla ${currentImageIndex + 1}`}
-                style={{ 
-                  width: 320, 
-                  height: 660, 
-                  objectFit: 'cover', 
-                  borderRadius: 36, 
-                  boxShadow: `0 2px 16px 0 ${COLORS.shadow}`,
-                  position: 'absolute'
-                }}
-                initial={{ x: 320, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -320, opacity: 0 }}
-              />
-            </AnimatePresence>
-            {/* Efecto de brillo */}
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', background: 'linear-gradient(120deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)', borderRadius: 40 }} />
-            {/* Indicadores de progreso */}
-            <div style={{ 
-              position: 'absolute', 
-              bottom: 20, 
-              left: '50%', 
-              transform: 'translateX(-50%)', 
-              display: 'flex', 
-              gap: 8,
-              zIndex: 10
-            }}>
-              {appImages.map((_, index) => (
-                <div
-                  key={index}
-                  style={{
-                    width: index === currentImageIndex ? 24 : 8,
-                    height: 8,
-                    borderRadius: 4,
-                    background: index === currentImageIndex ? COLORS.primary : 'rgba(255,255,255,0.5)',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer'
-                  }}
-                  onClick={() => setCurrentImageIndex(index)}
-                />
-              ))}
+              Ver Demo
+            </button>
+          </motion.div>
+
+          {/* Trust Indicators */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-wrap justify-center items-center gap-8 text-sm text-gray-500"
+          >
+            <div className="flex items-center">
+              <CheckCircleIcon className="w-5 h-5 text-green-500 mr-2" />
+              Sin tarjetas de crédito
             </div>
+            <div className="flex items-center">
+              <CheckCircleIcon className="w-5 h-5 text-green-500 mr-2" />
+              Configuración en 5 minutos
+            </div>
+            <div className="flex items-center">
+              <CheckCircleIcon className="w-5 h-5 text-green-500 mr-2" />
+              Soporte en español
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Tab Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="flex justify-center mb-8">
+            <div className="bg-white rounded-xl p-1 shadow-lg">
+              <button
+                onClick={() => setActiveTab('clubes')}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                  activeTab === 'clubes'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Para Clubes
+              </button>
+              <button
+                onClick={() => setActiveTab('usuarios')}
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-200 ${
+                  activeTab === 'usuarios'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
+              >
+                Para Usuarios
+              </button>
+            </div>
+          </div>
+
+          {/* Tab Content */}
+          <div className="bg-white rounded-2xl shadow-xl p-8">
+            {activeTab === 'clubes' ? (
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Digitaliza tu club deportivo
+                </h3>
+                <p className="text-gray-600 mb-8 text-lg">
+                  Gestiona torneos, ligas y competiciones de forma profesional y eficiente
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                  {features.map((feature, index) => (
+                    <div key={index} className="text-center">
+                      <feature.icon className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                      <p className="text-sm text-gray-600">{feature.text}</p>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  onClick={() => router.push('/registro-temprano?type=club')}
+                  className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                >
+                  Solicitar Demo para Clubes
+                </button>
+              </div>
+            ) : (
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Participa en competiciones
+                </h3>
+                <p className="text-gray-600 mb-8 text-lg">
+                  Descarga la app y únete a torneos y ligas en tu zona
+                </p>
+                <div className="flex justify-center space-x-4 mb-8">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-2">
+                      <span className="text-2xl">📱</span>
+                    </div>
+                    <p className="text-sm text-gray-600">App Móvil</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-2">
+                      <span className="text-2xl">🏆</span>
+                    </div>
+                    <p className="text-sm text-gray-600">Torneos</p>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center mb-2">
+                      <span className="text-2xl">👥</span>
+                    </div>
+                    <p className="text-sm text-gray-600">Comunidad</p>
+                  </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <button className="px-6 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-200">
+                    App Store
+                  </button>
+                  <button className="px-6 py-3 bg-black text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors duration-200">
+                    Google Play
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </motion.div>
       </div>
