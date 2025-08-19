@@ -1,10 +1,11 @@
 'use client';
 
 import Hero from './components/Hero'
-import VisualFlow from './components/VisualFlow'
-import Benefits from './components/Benefits'
-import Testimonials from './components/Testimonials'
-import FAQ from './components/FAQ'
+import Features from './components/Features'
+import HowItWorksSimple from './components/HowItWorksSimple'
+import Pricing from './components/Pricing'
+import TestimonialsLanding from './components/TestimonialsLanding'
+import FAQLanding from './components/FAQLanding'
 import CallToAction from './components/CallToAction'
 import Footer from './components/Footer'
 import Head from 'next/head'
@@ -13,15 +14,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Padpok | Juega al pádel, conecta con jugadores y organiza partidos fácilmente</title>
-        <meta name="description" content="Encuentra partidos de pádel, organiza torneos y crea grupos de jugadores. Únete a la comunidad más activa de pádel." />
+        <title>Padpok | Organize and Play Tournaments with Ease</title>
+        <meta name="description" content="Create sports leagues and tournaments in minutes. No hassle, no commissions. Padel, tennis, badminton and more." />
       </Head>
       <main className="overflow-hidden">
         <Hero />
-        <VisualFlow />
-        <Benefits />
-        <Testimonials />
-        <FAQ />
+        <Features />
+        <HowItWorksSimple />
+        <Pricing />
+        <TestimonialsLanding />
+        <FAQLanding />
         <CallToAction />
         <Footer />
       </main>

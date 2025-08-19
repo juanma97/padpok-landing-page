@@ -43,7 +43,7 @@ const CallToAction = () => {
               letterSpacing: '-0.5px',
               lineHeight: 1.15,
             }}>
-              Lleva tu pasión por el pádel al siguiente nivel
+              Ready to organize your first tournament?
             </h2>
             <p style={{
               margin: '24px auto 0',
@@ -53,7 +53,7 @@ const CallToAction = () => {
               fontFamily: FONTS.regular,
               lineHeight: 1.4,
             }}>
-              Únete gratis a la comunidad más activa, organiza partidos y haz nuevos amigos. Todo desde una sola app.
+              Create and manage leagues effortlessly. Start free today — no commissions.
             </p>
             <div style={{ marginTop: SPACING.xxl, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: SPACING.lg }}>
               <motion.button
@@ -75,7 +75,7 @@ const CallToAction = () => {
                   letterSpacing: 0.2,
                 }}
               >
-                Únete gratis
+                Start for Free
               </motion.button>
             </div>
           </div>
@@ -85,4 +85,4 @@ const CallToAction = () => {
   );
 };
 
-export default CallToAction; 
+export default CallToAction;

@@ -34,7 +34,7 @@ const Hero = () => {
   }, [appImages.length]);
 
   return (
-    <section style={{ background: COLORS.background, padding: '96px 0 64px 0', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <section id="hero" style={{ background: COLORS.background, padding: '96px 0 64px 0', minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', alignItems: 'center', gap: 64, flexWrap: 'wrap' }}>
         {/* Lado izquierdo: texto */}
         <motion.div
@@ -67,7 +67,7 @@ const Hero = () => {
             letterSpacing: -1,
             textShadow: `0 2px 8px ${COLORS.shadow}`,
           }}>
-            Descubre, organiza y juega<br />al pádel como nunca
+            Organize and Play Tournaments with Ease
           </h1>
           <p style={{
             fontSize: 22,
@@ -75,32 +75,59 @@ const Hero = () => {
             margin: '32px 0',
             fontFamily: FONTS.regular,
             lineHeight: 1.4,
-            maxWidth: 480,
+            maxWidth: 560,
           }}>
-            Únete a la comunidad de pádel más activa. Encuentra grupos, organiza partidos, gana medallas y haz nuevos amigos. Todo desde una app moderna, fácil y segura.
+            Padpok helps you create sports leagues and tournaments in minutes. No hassle, no commissions. Start free and scale as you grow.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.97 }}
-            onClick={() => router.push('/registro-temprano')}
-            style={{
-              background: COLORS.primary,
-              color: COLORS.white,
-              borderRadius: 9999,
-              padding: '18px 48px',
-              fontSize: 20,
-              fontWeight: 700,
-              fontFamily: FONTS.bold,
-              boxShadow: `0 2px 8px 0 ${COLORS.shadow}`,
-              border: 'none',
-              cursor: 'pointer',
-              marginTop: 16,
-              letterSpacing: 0.2,
-              transition: 'background 0.2s',
-            }}
-          >
-            Únete gratis
-          </motion.button>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => router.push('/registro-temprano')}
+              style={{
+                background: COLORS.primary,
+                color: COLORS.white,
+                borderRadius: 9999,
+                padding: '18px 28px',
+                fontSize: 18,
+                fontWeight: 700,
+                fontFamily: FONTS.bold,
+                boxShadow: `0 2px 8px 0 ${COLORS.shadow}`,
+                border: 'none',
+                cursor: 'pointer',
+                marginTop: 16,
+                letterSpacing: 0.2,
+                transition: 'background 0.2s',
+              }}
+            >
+              Start for Free
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => {
+                const el = document.querySelector('#pricing');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              style={{
+                background: COLORS.white,
+                color: COLORS.primary,
+                borderRadius: 9999,
+                padding: '18px 28px',
+                fontSize: 18,
+                fontWeight: 700,
+                fontFamily: FONTS.bold,
+                boxShadow: `0 2px 8px 0 ${COLORS.shadow}`,
+                border: `1px solid ${COLORS.border}`,
+                cursor: 'pointer',
+                marginTop: 16,
+                letterSpacing: 0.2,
+                transition: 'background 0.2s',
+              }}
+            >
+              See Pricing
+            </motion.button>
+          </div>
         </motion.div>
         {/* Lado derecho: carrusel de mockups */}
         <motion.div
