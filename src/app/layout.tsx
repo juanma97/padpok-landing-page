@@ -2,7 +2,6 @@ import './globals.css';
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';
 import '@fontsource/poppins/700.css';
-import { COLORS } from '@/theme';
 
 export const metadata = {
   metadataBase: new URL('https://padpok.com'),
@@ -42,8 +41,11 @@ export const metadata = {
     apple: '/apple-touch-icon.png'
   },
   manifest: "/manifest.json",
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: "#1e3a8a"
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -58,6 +60,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <meta name="google-site-verification" content="your-verification-code" />
+        <meta name="theme-color" content="#1e3a8a" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -82,10 +85,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className="font-poppins antialiased"
-        style={{ background: COLORS.background }}
-      >
+      <body className="font-poppins antialiased bg-gray-50 min-h-screen">
         {children}
       </body>
     </html>
