@@ -31,7 +31,7 @@ const Hero = () => {
             className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 mb-8"
           >
             <StarIcon className="w-4 h-4 mr-2" />
-            Plataforma líder en gestión deportiva
+            Plataforma líder en torneos/ligas de padel
           </motion.div>
 
           {/* Main Headline */}
@@ -39,13 +39,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight"
+            className="text-5xl md:text-6xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight"
           >
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Revoluciona
+              Gestiona ligas y torneos de padel
             </span>
             <br />
-            tu gestión deportiva
+            en minutos
           </motion.h1>
 
           {/* Subheadline */}
@@ -55,9 +55,11 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed"
           >
-            PadPok es la plataforma completa para gestionar torneos, ligas y competiciones deportivas. 
-            <span className="font-semibold text-gray-900"> Ideal para clubes que quieren digitalizar su gestión</span> y para 
-            <span className="font-semibold text-gray-900"> jugadores que buscan participar en competiciones</span>.
+            Descubre PadPok, la solución definitiva para transformar la gestión de tus torneos, ligas y competiciones de padel.
+            <br />
+            <br />
+            <span className="font-semibold text-gray-900">Perfecto para clubes que desean digitalizar su administración</span><br /> y para 
+            <span className="font-semibold text-gray-900"> jugadores apasionados por competir al más alto nivel</span>.
           </motion.p>
 
           {/* CTA Buttons */}

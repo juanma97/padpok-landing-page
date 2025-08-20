@@ -17,57 +17,57 @@ const Features = () => {
   const features = [
     {
       icon: TrophyIcon,
-      title: "Gestión de Torneos",
-      description: "Crea y gestiona torneos de cualquier deporte con brackets automáticos, calendarios y resultados en tiempo real.",
+      title: "Organización de Torneos de Padel",
+      description: "Crea y gestiona torneos de padel con brackets automáticos, calendarios y resultados en tiempo real.",
       category: "clubes",
       color: "blue"
     },
     {
       icon: UsersIcon,
-      title: "Gestión de Jugadores",
-      description: "Administra perfiles de jugadores, rankings, estadísticas y comunicación masiva desde un solo lugar.",
+      title: "Gestión de Participantes",
+      description: "Administra perfiles de jugadores, rankings y comunicación masiva para tus torneos de padel.",
       category: "clubes",
       color: "purple"
     },
     {
       icon: ChartBarIcon,
-      title: "Analytics y Reportes",
-      description: "Obtén insights detallados sobre participación, rendimiento y tendencias de tu club deportivo.",
+      title: "Estadísticas y Reportes",
+      description: "Obtén insights detallados sobre la participación y rendimiento en tus ligas de padel.",
       category: "clubes",
       color: "green"
     },
     {
       icon: BellIcon,
-      title: "Notificaciones Inteligentes",
-      description: "Sistema de alertas automáticas para recordatorios, resultados y actualizaciones importantes.",
+      title: "Alertas y Notificaciones",
+      description: "Sistema de alertas automáticas para recordatorios, resultados y actualizaciones de torneos.",
       category: "ambos",
       color: "orange"
     },
     {
       icon: CalendarIcon,
-      title: "Calendario Integrado",
-      description: "Sincroniza todos los eventos deportivos con calendarios personales y de equipos.",
+      title: "Calendario de Torneos",
+      description: "Sincroniza todos los eventos de padel con calendarios personales y de equipos.",
       category: "ambos",
       color: "red"
     },
     {
       icon: ShieldCheckIcon,
       title: "Seguridad y Privacidad",
-      description: "Protección de datos GDPR, autenticación segura y control de acceso granular.",
+      description: "Protección de datos GDPR, autenticación segura y control de acceso para tus torneos.",
       category: "clubes",
       color: "indigo"
     },
     {
       icon: DevicePhoneMobileIcon,
-      title: "App Móvil Nativa",
-      description: "Aplicación móvil para iOS y Android con funcionalidades completas para jugadores.",
+      title: "App Móvil para Jugadores",
+      description: "Aplicación móvil para iOS y Android con funcionalidades completas para jugadores de padel.",
       category: "usuarios",
       color: "pink"
     },
     {
       icon: GlobeAltIcon,
-      title: "Multiidioma",
-      description: "Soporte completo en español, inglés y otros idiomas para clubes internacionales.",
+      title: "Soporte Multiidioma",
+      description: "Soporte completo en español, inglés y otros idiomas para torneos internacionales de padel.",
       category: "clubes",
       color: "teal"
     }
@@ -115,7 +115,7 @@ const Features = () => {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Todo lo que necesitas para
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> gestionar tu deporte</span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> organizar tus torneos de padel</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -124,7 +124,7 @@ const Features = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-xl text-gray-600 max-w-3xl mx-auto"
           >
-            PadPok ofrece herramientas completas para clubes deportivos y una experiencia móvil excepcional para jugadores
+            PadPok ofrece herramientas completas para la organización de torneos de padel y una experiencia móvil excepcional para jugadores
           </motion.p>
         </div>
 
@@ -187,10 +187,10 @@ const Features = () => {
         >
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              ¿Listo para transformar tu club deportivo?
+              ¿Listo para llevar tus torneos de padel al siguiente nivel?
             </h3>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Únete a cientos de clubes que ya confían en PadPok para gestionar sus competiciones
+              Únete a cientos de organizadores que ya confían en PadPok para gestionar sus ligas y torneos de padel
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-200">
